@@ -23,10 +23,20 @@
   height: 420px;
 }
 
+.upload-section > input[type="file"] {
+  display: block; /* Garante que seja tratado como um bloco */
+  margin: 0 auto; /* Centraliza horizontalmente */
+}
+
+.upload-section > div {
+  margin-top: 1rem; /* Espaçamento acima do botão e dropdown */
+}
+
 .label {
   display: block;
   font-size: 1rem;
   margin-bottom: 0.5rem;
+  margin-left: 90px;
 }
 
 .log-input {

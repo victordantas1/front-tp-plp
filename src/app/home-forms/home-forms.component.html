@@ -3,19 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload Forms</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title>Upload Forms</title>
 </head>
-<body>
-<div class="home">
-  <header class="header"><p class="p">Sistema de Gerenciamento de Logs -SGL</p></header>
-  <form class="div">
-      <p class="text-wrapper">Insira seus arquivos de log:</p>
-      <input type="file" class="file-field"/>
-      <input class="submeter-btn" value="Submeter"/>
-      <div class="button-drop">
-        <div class="text-wrapper-3">Regex Personalizado</div>
-      </div>
-  </form>
-</div>
+<body class="log-upload-container">
+  <header class="header">
+    <h1>Sistema de Gerenciamento de Logs - SGL</h1>
+  </header>
+  <div class="upload-section">
+    <label for="log-files" class="label">Insira seus arquivos de log:</label>
+    <input
+      type="file"
+      id="log-files"
+      class="log-input"
+      multiple
+      accept=".log,.txt"
+      (change)="onFileSelected($event)"
+    />
+    <div class="controls">
+      <select class="regex-selector">
+        <option value="custom">Regex Personalizado</option>
+        <!-- Adicione mais opções se necessário -->
+      </select>
+      <button class="submit-btn">
+        Submeter
+        <i class="material-icons">upload</i>
+      </button>
+    </div>
+  </div>
 </body>
 </html>

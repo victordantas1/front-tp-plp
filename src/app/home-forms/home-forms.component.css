@@ -1,148 +1,69 @@
-.home {
-  background-color: #000660;
-  display: flex;
-  height: 100vh;
-  flex-direction: row;
-  justify-content: center;
+.log-upload-container {
+  background-color: #001354;
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  padding: 2rem;
   width: 100%;
 }
 
-.home .div {
-  background-color: #000660;
-  width: 1440px;
-  height: 1024px;
-  position: relative;
-  position: absolute;
-  width: 1143px;
-  height: 718px;
-  top: 182px;
-  left: 148px;
+.header h1 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  font-family: 'Zen Dots', serif;
+}
+
+.upload-section {
   background-color: #ffffff;
-  border-radius: 30px;
-  overflow: hidden;
-}
-
-.home .submeter-btn {
-  position: absolute;
-  top: 34px;
-  left: 44px;
-  font-family: "Source Sans Pro-Regular", Helvetica;
-  font-weight: 400;
   color: #000000;
-  font-size: 40px;
-  letter-spacing: 0;
-  line-height: normal;
+  padding: 1rem;
+  border-radius: 8px;
+  width: 1280px;
+  height: 420px;
 }
 
-.home .file-field {
-  position: absolute;
-  width: 1031px;
-  height: 406px;
-  top: 94px;
-  left: 52px;
-  background-color: #ece6e657;
-  border-radius: 40px;
-  border: 1px solid;
-  border-color: #000000;
+.label {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
 }
 
-.home .submeter-btn {
-  position: absolute;
-  width: 222px;
-  height: 82px;
-  top: 540px;
-  left: 861px;
-  background-color: #000661;
-  border-radius: 20px;
-  overflow: hidden;
-  border: 1px solid;
-  border-color: #000000;
+.log-input {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
 }
 
-.home .text-wrapper {
-  position: absolute;
-  top: 34px;
-  left: 44px;
-  font-family: "Source Sans Pro-Regular", Helvetica;
-  font-weight: 400;
-  color: #000000;
-  font-size: 40px;
-  letter-spacing: 0;
-  line-height: normal;
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.home .div .text-wrapper-2 {
-  position: absolute;
-  width: 132px;
-  top: 20px;
-  left: 32px;
-  font-family: "Source Sans Pro-Regular", Helvetica;
-  font-weight: 400;
+.regex-selector {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+
+.submit-btn {
+  background-color: #001354;
   color: #ffffff;
-  font-size: 32px;
-  letter-spacing: 0;
-  line-height: normal;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.home .upload {
-  position: absolute;
-  width: 24px;
-  height: 24px;
-  top: 29px;
-  left: 175px;
+.submit-btn:hover {
+  background-color: #002984;
 }
 
-.home .button-drop {
-  position: absolute;
-  width: 387px;
-  height: 82px;
-  top: 540px;
-  left: 52px;
-  background-color: #ffffff;
-  border-radius: 30px;
-  overflow: hidden;
-  border: 1px solid;
-  border-color: #000000;
-}
-
-.home .text-wrapper-3 {
-  position: absolute;
-  top: 20px;
-  left: 45px;
-  font-family: "Source Sans Pro-Regular", Helvetica;
-  font-weight: 400;
-  color: #000000;
-  font-size: 32px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.home .navigate-next {
-  position: absolute;
-  width: 41px;
-  height: 45px;
-  top: 22px;
-  left: 326px;
-}
-
-.home .header {
-  position: absolute;
-  width: 1440px;
-  height: 182px;
-  top: 0;
-  left: 0;
-  background-color: transparent;
-}
-
-.home .p {
-  position: absolute;
-  width: 1094px;
-  top: 56px;
-  left: 173px;
-  font-family: "Zen Dots", Helvetica, serif;
-  font-weight: 400;
-  color: #ffffff;
-  font-size: 40px;
-  letter-spacing: 0;
-  line-height: normal;
+.material-icons {
+  font-size: 1rem;
 }

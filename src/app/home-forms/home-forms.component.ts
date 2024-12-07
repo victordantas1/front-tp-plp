@@ -2,10 +2,16 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-home-forms',
-  imports: [],
   templateUrl: './home-forms.component.html',
-  styleUrl: './home-forms.component.css'
+  styleUrls: ['./home-forms.component.css']
 })
 export class HomeFormsComponent {
-
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.files) {
+      const files = Array.from(input.files);
+      console.log('Arquivos selecionados:', files);
+      // Adicione lógica para manipular os arquivos aqui
+    }
+  }
 }

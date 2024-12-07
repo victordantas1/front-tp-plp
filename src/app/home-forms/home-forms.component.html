@@ -6,30 +6,32 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <title>Upload Forms</title>
 </head>
-<body class="log-upload-container">
+<body>
+<div class="log-upload-container">
   <header class="header">
-    <h1>Sistema de Gerenciamento de Logs - SGL</h1>
+    <h1 class="titulo">Sistema de Gerenciamento de Logs - SGL</h1>
   </header>
-  <div class="upload-section">
-    <label for="log-files" class="label">Insira seus arquivos de log:</label>
-    <input
-      type="file"
-      id="log-files"
-      class="log-input"
-      multiple
-      accept=".log,.txt"
-      (change)="onFileSelected($event)"
-    />
-    <div class="controls">
-      <select class="regex-selector">
-        <option value="custom">Regex Personalizado</option>
-        <!-- Adicione mais opções se necessário -->
-      </select>
-      <button class="submit-btn">
-        Submeter
-        <i class="material-icons">upload</i>
-      </button>
+    <div class="upload-section">
+      <label for="log-files" class="label">Insira seus arquivos de log:</label>
+      <input
+        type="file"
+        id="log-files"
+        class="log-input"
+        multiple
+        accept=".log,.txt"
+        (change)="onFileSelected($event)"
+      />
+      <div class="controls">
+        <select class="regex-selector">
+          <option value="custom">Regex Personalizado</option>
+          <!-- Adicione mais opções se necessário -->
+        </select>
+        <button class="submit-btn">
+          Submeter
+          <i class="material-icons">upload</i>
+        </button>
+      </div>
     </div>
-  </div>
+</div>
 </body>
 </html>

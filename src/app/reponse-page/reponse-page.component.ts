@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-home-forms',
+  selector: 'app-reponse-page',
   templateUrl: './reponse-page.component.html',
   styleUrls: ['./reponse-page.component.css'],
 })

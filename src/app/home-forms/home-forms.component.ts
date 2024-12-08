@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home-forms',
@@ -11,7 +12,7 @@ import { Observable } from 'rxjs';
 export class HomeFormsComponent {
   selectedFiles: File[] = []; // Array para armazenar os arquivos selecionados
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) { }
 
   // Manipulador do evento de seleção de arquivos
   onFileSelected(event: Event): void {
@@ -33,6 +34,7 @@ export class HomeFormsComponent {
       this.uploadFiles(this.selectedFiles).subscribe({
         next: (response: any) => {  // Defina o tipo da resposta
           console.log('Resposta da API:', response);
+          this.router.navigate(['/reponse']);
         },
         error: (error: any) => {  // Defina o tipo do erro
           console.error('Erro ao enviar arquivos:', error);

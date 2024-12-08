@@ -1,0 +1,96 @@
+/* Corpo da página */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #001354;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Container principal */
+.container {
+  background-color: #ffffff;
+  color: #000000;
+  width: 80%;
+  max-width: 960px;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Cabeçalho */
+.header h1 {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #ffffff;
+  background-color: #001354;
+  padding: 10px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+/* Seção de informações */
+.info-section {
+  padding: 20px;
+}
+
+.info-section h2 {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #001354;
+}
+
+/* Grid de informações */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+/* Bloco de informações */
+.info-box,
+.error-box {
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.info-box h3,
+.error-box h3 {
+  margin: 0 0 10px;
+  font-size: 1rem;
+  color: #001354;
+}
+
+.info-box p,
+.error-box p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+}
+
+/* Botão de exportação */
+.export-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #001354;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.export-btn:hover {
+  background-color: #002984;
+}
+
+.material-icons {
+  font-size: 1rem;
+}
+

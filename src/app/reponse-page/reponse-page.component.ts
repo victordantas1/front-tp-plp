@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './home-forms.component.html',
   styleUrls: ['./home-forms.component.css'],
 })
-export class ResponsePageComponent implements OnInit {
+export class ReponsePageComponent implements OnInit {
   cpuUso = '';
   cpuTemp = '';
   gpuUso = '';

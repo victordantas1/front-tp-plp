@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-home-forms',
-  templateUrl: './home-forms.component.html',
-  styleUrls: ['./home-forms.component.css'],
+  templateUrl: './reponse-page.component.html',
+  styleUrls: ['./reponse-page.component.css'],
 })
 export class ReponsePageComponent implements OnInit {
   cpuUso = '';

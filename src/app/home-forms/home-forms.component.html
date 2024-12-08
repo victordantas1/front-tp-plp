@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <title>Upload Forms</title>
 </head>
 <body>
@@ -11,28 +11,28 @@
   <header class="header">
     <h1 class="titulo">Sistema de Gerenciamento de Logs - SGL</h1>
   </header>
-    <form class="upload-section" enctype="multipart/form-data">
-      <label for="log-files" class="label">Insira seus arquivos de log:</label>
-      <input
-        formControlName="file"
-        type="file"
-        id="log-files"
-        class="log-input"
-        multiple
-        accept=".log,.txt"
-        (change)="onFileSelected($event)"
-      />
-      <div class="controls">
-        <select class="regex-selector">
-          <option value="custom">Regex Personalizado</option>
-          <!-- Adicione mais opções se necessário -->
-        </select>
-        <button class="submit-btn" type="submit">
-          Submeter
-          <i class="material-icons">upload</i>
-        </button>
-      </div>
-    </form>
+  <form class="upload-section" (submit)="onSubmit($event)" enctype="multipart/form-data">
+    <label for="log-files" class="label">Insira seus arquivos de log:</label>
+    <input
+      formControlName="file"
+      type="file"
+      id="log-files"
+      class="log-input"
+      multiple
+      accept=".log,.txt"
+      (change)="onFileSelected($event)"
+    />
+    <div class="controls">
+      <select class="regex-selector">
+        <option value="custom">Regex Personalizado</option>
+        <!-- Adicione mais opções se necessário -->
+      </select>
+      <button class="submit-btn" type="submit">
+        Submeter
+        <i class="material-icons">upload</i>
+      </button>
+    </div>
+  </form>
 </div>
 </body>
 </html>

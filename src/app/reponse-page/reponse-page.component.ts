@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {LogInfoService} from "../log-info.service";
 
 @Component({
   selector: 'app-reponse-page',
@@ -7,36 +8,18 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./reponse-page.component.css'],
 })
 export class ReponsePageComponent implements OnInit {
-  cpuUso = '';
-  cpuTemp = '';
-  gpuUso = '';
-  gpuTemp = '';
-  ramUso = '';
-  ramDisponivel = '';
-  discoUso = '';
-  discoDisponivel = '';
-  erros = '';
-
   private apiUrl = 'http://localhost:3000/upload'; // Substitua pela URL da API
-
-  constructor(private http: HttpClient) {}
+  private apiResponse: any;
+  constructor(private http: HttpClient, private logInfoService: LogInfoService) { }
 
   ngOnInit(): void {
-    this.carregarDados();
+    this.apiResponse = this.logInfoService.getResponse()
   }
 
   carregarDados(): void {
     this.http.get<any>(this.apiUrl).subscribe({
       next: (data) => {
-        this.cpuUso = data.cpuUso;
-        this.cpuTemp = data.cpuTemp;
-        this.gpuUso = data.gpuUso;
-        this.gpuTemp = data.gpuTemp;
-        this.ramUso = data.ramUso;
-        this.ramDisponivel = data.ramDisponivel;
-        this.discoUso = data.discoUso;
-        this.discoDisponivel = data.discoDisponivel;
-        this.erros = data.erros || 'Nenhum erro detectado.';
+        this.infoLog = data;
       },
       error: (error) => {
         console.error('Erro ao carregar os dados:', error);

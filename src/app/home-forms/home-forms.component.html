@@ -1,38 +1,58 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <title>Upload Forms</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistema de Gerenciamento de Logs</title>
+  <link
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet"
+  />
 </head>
 <body>
-<div class="log-upload-container">
+<div class="container">
   <header class="header">
-    <h1 class="titulo">Sistema de Gerenciamento de Logs - SGL</h1>
+    <h1>Sistema de Gerenciamento de Logs - SGL</h1>
   </header>
-    <form class="upload-section" (submit)="onSubmit($event)" enctype="multipart/form-data">
-      <label for="log-files" class="label">Insira seus arquivos de log:</label>
-      <input
-        formControlName="file"
-        type="file"
-        id="log-files"
-        class="log-input"
-        multiple
-        accept=".log,.txt"
-        (change)="onFileSelected($event)"
-      />
-      <div class="controls">
-        <select class="regex-selector">
-          <option value="custom">Regex Personalizado</option>
-          <!-- Adicione mais opções se necessário -->
-        </select>
-        <button class="submit-btn" type="submit">
-          Submeter
-          <i class="material-icons">upload</i>
-        </button>
+  <section class="info-section">
+    <h2>Informações do arquivo:</h2>
+    <div class="info-grid">
+      <!-- CPU -->
+      <div class="info-box">
+        <h3>CPU</h3>
+        <p>Uso: <span>{{ cpuUso }}</span></p>
+        <p>Temp: <span>{{ cpuTemp }}</span></p>
       </div>
-    </form>
+      <!-- GPU -->
+      <div class="info-box">
+        <h3>GPU</h3>
+        <p>Uso: <span>{{ gpuUso }}</span></p>
+        <p>Temp: <span>{{ gpuTemp }}</span></p>
+      </div>
+      <!-- RAM -->
+      <div class="info-box">
+        <h3>RAM</h3>
+        <p>Uso: <span>{{ ramUso }}</span></p>
+        <p>Disponível: <span>{{ ramDisponivel }}</span></p>
+      </div>
+      <!-- Disco -->
+      <div class="info-box">
+        <h3>Disco</h3>
+        <p>Uso: <span>{{ discoUso }}</span></p>
+        <p>Disponível: <span>{{ discoDisponivel }}</span></p>
+      </div>
+      <!-- Erros -->
+      <div class="error-box">
+        <h3>Erros:</h3>
+        <p>{{ erros }}</p>
+      </div>
+    </div>
+    <button class="export-btn" (click)="exportCSV()">
+      Exportar CSV <i class="material-icons">download</i>
+    </button>
+  </section>
 </div>
 </body>
 </html>
+
+

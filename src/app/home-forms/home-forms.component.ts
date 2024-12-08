@@ -41,7 +41,7 @@ export class HomeFormsComponent {
     });
 
     // Substitua 'URL_DA_SUA_API' pela URL real da sua API
-    return this.http.post('URL_DA_SUA_API', formData);
+    return this.http.post('http://localhost:3000/upload', formData);
   }
 }
 

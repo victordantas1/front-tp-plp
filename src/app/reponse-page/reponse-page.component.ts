@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {LogInfoService} from "../log-info.service";
 
 @Component({
   selector: 'app-reponse-page', // Identifica o seletor para uso no HTML
@@ -7,47 +8,24 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./reponse-page.component.css'], // Define o arquivo de estilos associado
 })
 export class ReponsePageComponent implements OnInit {
-// Propriedades do componente
-  cpuUso = ''; // Armazena o uso da CPU
-  cpuTemp = ''; // Armazena a temperatura da CPU
-  gpuUso = ''; // Armazena o uso da GPU
-  gpuTemp = ''; // Armazena a temperatura da GPU
-  ramUso = ''; // Armazena o uso de RAM
-  ramDisponivel = ''; // Armazena a RAM disponível
-  discoUso = ''; // Armazena o uso do disco
-  discoDisponivel = ''; // Armazena o espaço disponível no disco
-  erros = ''; // Armazena mensagens de erro
-  ip = 'Carregando...'; // Armazena o endereço IP do usuário
-
-  private apiUrl = 'http://localhost:3000/upload'; //  URL da API
-
-  // Injeta o serviço HttpClient no componente
-  constructor(private http: HttpClient) {}
+  private apiUrl = 'http://localhost:3000/upload'; // Substitua pela URL da API
+  private apiResponse: any;
+  constructor(private http: HttpClient, private logInfoService: LogInfoService) { }
 
   // Método chamado automaticamente ao inicializar o componente
   ngOnInit(): void {
-    this.carregarDados(); // Chama o método para carregar dados do backend
-    this.getIPAddress(); // Chama o método para obter o endereço IP do usuário
+    this.apiResponse = this.logInfoService.getResponse()
+    console.log("Dados recebidos: ", this.apiResponse)
   }
 
   // Método para carregar dados do backend
   carregarDados(): void {
     this.http.get<any>(this.apiUrl).subscribe({
       next: (data) => {
-        // Preenche as propriedades com os dados recebidos
-        this.cpuUso = data.cpuUso;
-        this.cpuTemp = data.cpuTemp;
-        this.gpuUso = data.gpuUso;
-        this.gpuTemp = data.gpuTemp;
-        this.ramUso = data.ramUso;
-        this.ramDisponivel = data.ramDisponivel;
-        this.discoUso = data.discoUso;
-        this.discoDisponivel = data.discoDisponivel;
-        this.erros = data.erros || 'Nenhum erro detectado.';
+        this.logInfoService = data;
       },
       error: (error) => {
         console.error('Erro ao carregar os dados:', error);
-        this.erros = 'Erro ao obter dados da API.';
       },
       complete: () => {
         console.log('Requisição completa.');

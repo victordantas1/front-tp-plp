@@ -14,16 +14,16 @@ export class ReponsePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.apiResponse = this.logInfoService.getResponse()
+    console.log("Dados recebidos: ", this.apiResponse)
   }
 
   carregarDados(): void {
     this.http.get<any>(this.apiUrl).subscribe({
       next: (data) => {
-        this.infoLog = data;
+        this.logInfoService = data;
       },
       error: (error) => {
         console.error('Erro ao carregar os dados:', error);
-        this.erros = 'Erro ao obter dados da API.';
       },
       complete: () => {
         console.log('Requisição completa.');

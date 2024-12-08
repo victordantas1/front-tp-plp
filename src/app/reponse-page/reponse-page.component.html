@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistema de Gerenciamento de Logs</title>
+  <link
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="reponse-page.component.css" />
+</head>
+<body>
+<div class="container">
+  <header class="header">
+    <h1>Sistema de Gerenciamento de Logs - SGL</h1>
+  </header>
+  <section class="info-section">
+    <h2>Informações do arquivo:</h2>
+    <div class="info-grid">
+      <!-- CPU -->
+      <div class="info-box">
+        <h3>CPU</h3>
+        <p>Uso: <span>{{ cpuUso }}</span></p>
+        <p>Temp: <span>{{ cpuTemp }}</span></p>
+      </div>
+      <!-- GPU -->
+      <div class="info-box">
+        <h3>GPU</h3>
+        <p>Uso: <span>{{ gpuUso }}</span></p>
+        <p>Temp: <span>{{ gpuTemp }}</span></p>
+      </div>
+      <!-- RAM -->
+      <div class="info-box">
+        <h3>RAM</h3>
+        <p>Uso: <span>{{ ramUso }}</span></p>
+        <p>Disponível: <span>{{ ramDisponivel }}</span></p>
+      </div>
+      <!-- Disco -->
+      <div class="info-box">
+        <h3>Disco</h3>
+        <p>Uso: <span>{{ discoUso }}</span></p>
+        <p>Disponível: <span>{{ discoDisponivel }}</span></p>
+      </div>
+      <!-- Erros -->
+      <div class="error-box">
+        <h3>Erros:</h3>
+        <p>{{ erros }}</p>
+      </div>
+    </div>
+    <button class="export-btn" (click)="exportCSV()">
+      Exportar CSV <i class="material-icons">download</i>
+    </button>
+  </section>
+</div>
+</body>
+</html>

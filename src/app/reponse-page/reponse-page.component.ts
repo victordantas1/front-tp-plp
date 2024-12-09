@@ -38,37 +38,28 @@ export class ReponsePageComponent implements OnInit {
       return;
     }
 
+    // Obter todas as chaves únicas de todos os objetos dentro de 'files'
+    const allKeys: string[] = Array.from(new Set(this.apiResponse['files'].flatMap((file: any) => Object.keys(file))));
+
     const csvRows: string[] = [];
 
-    // Cabeçalhos do CSV
-    csvRows.push('filename,type,value');
+    // Adicionar cabeçalho (todas as chaves)
+    csvRows.push(allKeys.join(','));
 
-    // Iterar sobre cada arquivo em `files`
-    for (const file of this.apiResponse['files']) {
-      const filename = file['filename'] || ''; // Nome do arquivo
-
-      // Mapear os valores de RAM, GPU, CPU, etc., em linhas verticais
-      const types = ['ram', 'gpu', 'cpu', 'disk', 'ips'];
-      for (const type of types) {
-        if (file[type] && typeof file[type] === 'string') {
-          const values = file[type].split(','); // Quebrar os valores separados por vírgulas
-          for (const value of values) {
-            csvRows.push(`${filename},${type},${value}`);
-          }
-        }
-      }
-
-      // Adicionar outros campos únicos, como IP
-      if (file['ip']) {
-        csvRows.push(`${filename},ip,${file['ip']}`);
-      }
+    // Adicionar dados das linhas
+    for (const row of this.apiResponse['files']) {
+      const values = allKeys.map((key: string) => {
+        const value = row[key] !== undefined ? row[key] : '';  // Usar valor vazio se a chave não existir
+        return `"${value}"`;  // Corrigido: Adicionar aspas para lidar com vírgulas nos valores
+      });
+      csvRows.push(values.join(','));
     }
 
     // Criar o conteúdo do CSV
     const csvContent = csvRows.join('\n');
 
     // Criar um blob para download
-    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const blob = new Blob([csvContent], {type: 'text/csv;charset=utf-8;'});
     const link = document.createElement('a');
     if (link.download !== undefined) {
       const url = URL.createObjectURL(blob);

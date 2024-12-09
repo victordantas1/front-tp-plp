@@ -50,15 +50,11 @@
 
 .controls {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
+  margin-right: 90px;
 }
 
-.regex-selector {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 0.5rem;
-}
 
 .submit-btn {
   background-color: #001354;

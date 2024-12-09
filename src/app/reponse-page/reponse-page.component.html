@@ -21,36 +21,32 @@
       <!-- CPU -->
       <div class="info-box">
         <h3>CPU</h3>
-        <p>Uso: <span></span></p>
-        <p>Temp: <span></span></p>
+        <p>Uso: <span> {{ this.apiResponse['files'][0]['cpu'][0] }} </span></p>
       </div>
       <!-- GPU -->
       <div class="info-box">
         <h3>GPU</h3>
-        <p>Uso: <span></span></p>
-        <p>Temp: <span></span></p>
+        <p>Uso: <span> {{ this.apiResponse['files'][0]['gpu'][0] }} </span></p>
       </div>
       <!-- RAM -->
       <div class="info-box">
         <h3>RAM</h3>
-        <p>Uso: <span></span></p>
-        <p>Disponível: <span></span></p>
+        <p>Uso: <span> {{ this.apiResponse['files'][0]['ram'][0] }} </span></p>
       </div>
       <!-- Disco -->
       <div class="info-box">
         <h3>Disco</h3>
-        <p>Uso: <span></span></p>
-        <p>Disponível: <span></span></p>
+        <p>Uso: {{ this.apiResponse['files'][0]['disk'][0] }}<span></span></p>
       </div>
       <!-- Endereço IP -->
       <div class="info-box">
         <h3>Endereço IP</h3>
-        <p>Seu IP é: <span>{{ ip }}</span></p>
+        <p>Seu IP é: <span>{{ this.apiResponse['files'][0]['ip'][0] }}</span></p>
       </div>
       <!-- Erros -->
       <div class="error-box">
         <h3>Erros:</h3>
-        <p></p>
+        <p>Sem erros</p>
       </div>
     </div>
     <button class="export-btn" (click)="exportCSV()">

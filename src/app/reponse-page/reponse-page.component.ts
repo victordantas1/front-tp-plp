@@ -38,8 +38,10 @@ export class ReponsePageComponent implements OnInit {
       return;
     }
 
-    // Obter todas as chaves únicas de todos os objetos dentro de 'files'
-    const allKeys: string[] = Array.from(new Set(this.apiResponse['files'].flatMap((file: any) => Object.keys(file))));
+    // Obter todas as chaves únicas de todos os objetos dentro de 'files', exceto 'filename' e 'ips'
+    const allKeys: string[] = Array.from(new Set(
+      this.apiResponse['files'].flatMap((file: any) => Object.keys(file).filter((key) => key !== 'filename' && key !== 'ips'))
+    ));
 
     const csvRows: string[] = [];
 
@@ -49,8 +51,8 @@ export class ReponsePageComponent implements OnInit {
     // Adicionar dados das linhas
     for (const row of this.apiResponse['files']) {
       const values = allKeys.map((key: string) => {
-        const value = row[key] !== undefined ? row[key] : '';  // Usar valor vazio se a chave não existir
-        return `"${value}"`;  // Corrigido: Adicionar aspas para lidar com vírgulas nos valores
+        const value = row[key] !== undefined ? row[key] : ''; // Usar valor vazio se a chave não existir
+        return `"${value}"`; // Adicionar aspas para lidar com vírgulas nos valores
       });
       csvRows.push(values.join(','));
     }
@@ -59,7 +61,7 @@ export class ReponsePageComponent implements OnInit {
     const csvContent = csvRows.join('\n');
 
     // Criar um blob para download
-    const blob = new Blob([csvContent], {type: 'text/csv;charset=utf-8;'});
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
     const link = document.createElement('a');
     if (link.download !== undefined) {
       const url = URL.createObjectURL(blob);
